@@ -1,0 +1,50 @@
+  static void Main(string[] args)
+        {
+            StudentHouse();
+
+            Console.ReadLine();
+        }
+        private static void StudentHouse()
+        {
+            Console.WriteLine("Please enter the amount of money that you have spent for the student house when you see your name on the console!");
+            Console.WriteLine("*****************");
+            string[] Names = new string[] { "Tülin", "Selin", "Murat", "Ada", "Melih" };
+
+            Console.Write("{0}: ", Names[0]);
+            int person1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("{0}: ", Names[1]);
+            int person2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("{0}: ", Names[2]);
+            int person3 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("{0}: ", Names[3]);
+            int person4 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("{0}: ", Names[4]);
+            int person5 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("*****************");
+
+            int total = person1 + person2 + person3 + person4 + person5;
+            int perPerson = total / 5;
+
+            int[] Loop = new int[5] { person1, person2, person3, person4, person5 };
+
+
+            for (int i = 0; i < 5; i++)
+            {
+
+                if (Loop[i] < perPerson)
+                {
+                    Loop[i] = perPerson - Loop[i];
+                    Console.WriteLine("{0} supposed to pay {1}TL.", Names[i], Loop[i]);
+                }
+                else if (Loop[i] == perPerson)
+                {
+                    Console.WriteLine("{0} does not need to pay anything.", Names[i]);
+                }
+                else if (Loop[i] > perPerson)
+                {
+                    Loop[i] = Loop[i] - perPerson;
+                    Console.WriteLine("{0} should be paid {1}TL.", Names[i], Loop[i]);
+                }
+            }
+        }
